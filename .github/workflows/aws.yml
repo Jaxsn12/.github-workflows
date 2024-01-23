@@ -22,7 +22,7 @@ jobs:
         run: npm install
       - name: Install Serverless Framework
         run: npm install -g serverless
-
+        
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -31,7 +31,9 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy Lambda function
-         run: serverless deploy
+        uses: serverless/github-action@master
+        with:
+          args: deploy -p my-simple-lambda
 
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
