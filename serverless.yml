@@ -60,7 +60,7 @@ provider:
 
 functions:
   Test:
-    handler: handler.handler
+    handler: my-simple-lambda/handler.handler
     events:
       - sqs:
           arn:
