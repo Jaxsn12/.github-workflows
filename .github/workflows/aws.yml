@@ -31,9 +31,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy Lambda function
-        uses: serverless/github-action@master
-        with:
-          args: deploy -p my-simple-lambda
+         run: sls deploy -p my-simple-lambda/serverless
 
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
